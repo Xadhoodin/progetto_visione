@@ -12,13 +12,7 @@ Il progetto è diviso in tre parti:
 <br>
 L'architettura dell'applicazione può essere riassunta secondo il seguente schema:
 
-```mermaid
-graph TD;
-id1(Utente) -- Comandi vocali --> id2(Interfaccia web);
-id2 -- Traduzione in testo --> id3(Script Python 'server');
-id3 -- Creazione nodo ROS e pubblicazione messaggi Twist --> id4(Package ROS in grado di muovere il robot);
-id4 -- Invio del feedback --> id1; 
-```
+<br>![enter image description here](https://drive.google.com/uc?export=view&id=1nFRPcXeqt0rihDR_TSKJ4Jj19tvwoMUK)
 
 
 ## Prerequisiti necessari e procedure per l'esecuzione
