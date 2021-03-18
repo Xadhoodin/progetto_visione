@@ -12,7 +12,7 @@ Il progetto è diviso in tre parti:
 <br>
 L'architettura dell'applicazione può essere riassunta secondo il seguente schema:
 
-<br>![enter image description here](https://drive.google.com/uc?export=view&id=1nFRPcXeqt0rihDR_TSKJ4Jj19tvwoMUK)
+<br>![Grafo nodi](https://drive.google.com/uc?export=view&id=1nFRPcXeqt0rihDR_TSKJ4Jj19tvwoMUK)
 
 
 ## Prerequisiti necessari e procedure per l'esecuzione
@@ -35,17 +35,17 @@ Per maggiore chiarezza si può far riferimento ai video tutorial.
 
 ## Funzionamento dell'applicazione
 Per impartire i comandi è necessario accedere all'interfaccia web e cliccare il bottone con l'icona del microfono 
-<br>![enter image description here](https://drive.google.com/uc?export=view&id=1oGUGi9bMy866mAjWCMDq_A9wa09Huobc)
+<br>![Microfono](https://drive.google.com/uc?export=view&id=1oGUGi9bMy866mAjWCMDq_A9wa09Huobc)
 
 I comandi dettati saranno visualizzati nel riquadro del risultato. Se i comandi sono tutti corretti si potrà procedere all'invio tramite bottone dedicato.
 
-![enter image description here](https://drive.google.com/uc?export=view&id=1C7GoL7FBEEMd1n93DvTWn4ty7k7NY3O6)
+![Conferma](https://drive.google.com/uc?export=view&id=1C7GoL7FBEEMd1n93DvTWn4ty7k7NY3O6)
 
 
 Una volta inviati i comandi il robot si sposterà seguendo tali indicazioni (in blu è cerchiata la posizione di partenza, in rosso quella di arrivo)
 
-![enter image description here](https://drive.google.com/uc?export=view&id=1TdQe5FLB2KPi0zkATctWt3Jxa1q3adYJ)
+![Movimento robot](https://drive.google.com/uc?export=view&id=1TdQe5FLB2KPi0zkATctWt3Jxa1q3adYJ)
 
 Sull'interfaccia web avremo un messaggio che ci ricapitola se sono stati eseguiti con successo tutti i comandi
 
-![enter image description here](https://drive.google.com/uc?export=view&id=1qclLDs76negDFsYHkyWeHy3yUYYWEybq)
+![Risultato](https://drive.google.com/uc?export=view&id=1qclLDs76negDFsYHkyWeHy3yUYYWEybq)
