@@ -1,0 +1,88 @@
+<div class="container-fluid" style="font-size: 1.2rem">
+  <div class="row margin-top title-font">
+    <div class="col-12 text-center">
+      Centro di controllo per il robot Turtlebot
+    </div>
+  </div>
+  <div class="row margin-top">
+    <div class="col-12">
+      È possibile pilotare il robot tramite comandi vocali dettati cliccando sul bottone apposito.
+      <br>
+      <br>
+      Una volta effettuato il click l'applicativo sarà in attesa dei comandi e rimarrà in ascolto fino a quando i comandi saranno terminati o finché il bottone non sarà cliccato nuovamente.
+      <br>
+      <br>
+      <span style="color: red; font-weight: bold">
+        <mat-icon>warning_amber</mat-icon>
+        Attenzione!
+      </span> Qualora si impartissero dei comandi non ammessi l'applicativo inviterà a riprovare per cui è necessario scandire bene i comandi moderando la velocità
+    </div>
+  </div>
+  <div class="row margin-top">
+    <div class="col-12 font-italic">
+      I comandi vocali ammessi sono:
+    </div>
+  </div>
+  <div class="row margin-top font-weight-bold">
+    <div class="col-12">
+      <ul>
+        <li>
+          <mat-icon class="align-bottom">arrow_upward</mat-icon>
+          Avanti
+        </li>
+        <li>
+          <mat-icon class="align-bottom">arrow_forward</mat-icon>
+          Destra
+        </li>
+        <li>
+          <mat-icon class="align-bottom">arrow_back</mat-icon>
+          Sinistra
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row margin-top">
+    <div class="col-12">
+      Per iniziare a impartire i comandi, premi il tasto in basso
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <button mat-button class="no-border" (click)="startRecording()" *ngIf="!isRecording">
+        <mat-icon class="big-icon">mic</mat-icon>
+      </button>
+      <button mat-button class="no-border" (click)="stopRecording()" *ngIf="isRecording">
+        <mat-icon class="big-icon">mic_off</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center" *ngIf="isRecording">
+      Sto ascoltando...
+    </div>
+  </div>
+  <div class="row margin-top text-center border-solid">
+    <div class="col-12">
+      <p>Risultato: {{result}}</p>
+      <mat-error *ngIf="commandsIncorrect">Attenzione: non tutti i comandi sono corretti. Riprovare</mat-error>
+    </div>
+  </div>
+  <div class="row text-center margin-top" *ngIf="commandsIncorrect !== undefined && !commandsIncorrect && executionResult === undefined">
+    <div class="col-12" *ngIf="!executingCommands">
+      I comandi sono corretti. Inviare la sequenza al robot?
+    </div>
+    <div class="col-12" *ngIf="!executingCommands">
+      <button mat-raised-button (click)="sendData()">Si</button>
+      <button mat-raised-button (click)="resetRecording()">Riprova</button>
+    </div>
+    <div class="col-12 spinner-center" *ngIf="executingCommands">
+      Sto eseguendo i comandi...
+      <div class="uploader-status"><mat-spinner></mat-spinner></div>
+    </div>
+  </div>
+  <div class="row" *ngIf="executionResult !== undefined">
+    <div class="col-12 execution-result text-center">
+      {{executionResult}}
+    </div>
+  </div>
+</div>
