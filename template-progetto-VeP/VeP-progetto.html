@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!-- VeP http://web.unibas.it/bloisi/corsi/visione-e-percezione.html -->
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Guida tramite comandi vocali</title>
+	<!-- Meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descrizione del progetto">
+    <meta name="author" content="Domenico Bloisi adapted a 3rd Wave Media template">    
+    <link rel="shortcut icon" href="http://web.unibas.it/bloisi/tutorial/favicon.ico">
+    <link href="VeP-progetto_files/css.txt" rel="stylesheet" type="text/css">
+    <link href="VeP-progetto_files/css1.txt" rel="stylesheet" type="text/css"> 
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="VeP-progetto_files/bootstrap.css">   
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="VeP-progetto_files/font-awesome.css">
+        
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="VeP-progetto_files/styles.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+</head> 
+
+<body>
+    <!-- ******HEADER****** --> 
+    <header class="header">
+        <div class="container">                       
+            <img class="profile-image img-responsive pull-left" src="https://s3-eu-west-1.amazonaws.com/robosavvy/prodImages/turtlebot3/turtlebotPi.jpg" alt="Inserire immagine qui" hegiht="200" width="300">
+            <div class="profile-content pull-left">
+                <h1 class="name">TurtleBot 3 Waffle guidato tramite <br> comandi vocali</h1>
+                <h2 class="desc">Simulazione tramite ROS e Gazebo di un robot <br> con comandi vocali impartiti tramite interfaccia web</h2>
+            </div>
+
+            <div class="profile-content pull-right">
+				<img class="profile-image img-responsive pull-left"
+				    src="http://web.unibas.it/bloisi/assets/images/logo.png"
+					alt="unibas logo"
+					height=97 width=312/>
+				
+				<p>&nbsp;</p>
+				<h3 class="desc">
+				<a href="http://web.unibas.it/bloisi/corsi/visione-e-percezione.html"
+				target="_blank">
+				Corso di Visione e Percezione</a>
+				</h3>
+			</div>
+			
+        </div><!--//container-->
+    </header><!--//header-->
+    
+    <div class="container sections-wrapper">
+        <div class="row">
+            <div class="primary col-md-8 col-sm-12 col-xs-12">
+			
+			    <section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading">Problema</h2>
+                        <div class="content">
+                            <p> I robot attualmente in commercio possono essere comandati tramite periferiche che non sono immediatamente accessibili a utenti non esperti.
+                                Un altro aspetto del problema è legato all'accessibilità: infatti se per alcuni utenti un joystick o una tastiera sono periferiche non familiari per altri risulta fisicamente impossibile l'utilizzo a causa di limitazioni motorie.
+							</p>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+				
+				<section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading">Motivazioni</h2>
+                        <div class="content">
+                            L'utilizzo di un cobot al giorno d'oggi può facilitare la vita di molte persone delegando ad esso compiti che non riuscirebbero a svolgere normalmente e l'utilizzo di un robot tramite comandi vocali, al pari di come avviene per alcune tecnologie per personal computer, consente di ampliare il numero di utenti rendendoli di fatto qualcosa di più inclusivo.
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+			
+                <section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading"><a id="goals"></a>Obiettivi</h2>
+                        <div class="content">
+                            Per risolvere il problema è stato necessario raggiungere i seguenti obiettivi:
+							<ol>
+								<li>creare un "mondo" in Gazebo che riproducesse uno scenario di vita reale (nello specifico un ufficio)</li>
+								<li>sviluppare uno script Python che fosse in grado di interpretare i comandi vocali e li traducesse in comandi per ROS</li>
+                                <li>sviluppare del codice che permettesse di intercettare eventuali ostacoli e posizionare il robot nella maniera più opportuna</li>
+								<li>sviluppare un'interfaccia web minimale che permettesse in maniera veloce tramite comandi semplici di interagire con il robot</li>
+							</ol>
+							</p>
+                                                     
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+				
+				<section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading"><a id="dataset"></a>Implementazione e Codice</h2>
+                        <div class="content">
+
+                            <h4>Implementazione</h4>
+
+                            Le tecnologie utilizzate sono state:
+                            <ul>
+                                <li>
+                                    <span style="font-weight: bold">Angular</span> per lo sviluppo dell'interfaccia grafica (tramite HTML, CSS e Typescript)
+                                </li>
+                                <li>
+                                    <span style="font-weight: bold">Python 3.7</span> con websockets per invio e ricezione dei messaggi e asyncio per ascoltare in loop
+                                </li>
+                                <li>
+                                    <span style="font-weight: bold">ROS Melodic</span> per l'esecuzione dei messaggi
+                                </li>
+                                <li>
+                                    <span style="font-weight: bold">Gazebo</span> per la creazione del mondo e per la visualizzazione dei movimenti del robot
+                                </li>
+                            </ul>
+
+                            <h4>Codice sorgente</h4>
+                            <a href="https://github.com/Xadhoodin/progetto_visione" target="_blank">Link repository GitHub</a>
+                                                     
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+
+                <section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading"><a id="dataset"></a>Processo di sviluppo</h2>
+                        <div class="content">
+                            Lo sviluppo dell'applicativo si è diviso in più fasi, ognuna programmata e testata a sé stante e integrate poi successivamente man mano che
+                            ogni sezione diventava completa e funzionante.
+                            <br>
+                            <br>
+                            Come prima operazione è stata creata una macchina virtuale Ubuntu dove sono stati installati tutti i package necessari (ROS Melodic, Gazebo, Node.js, npm, Python 3) e i relativi ambienti di sviluppo/editor di testo. Il primo problema riscontrato ha riguardato il corretto spawn del robot in un mondo ancora vuoto in quanto nel rendering 3D di Gazebo esso non risultava visibile. Dopo varie ricerche è stato sufficiente aggiungere un parametro (pause:=false) nel momento in cui si lanciava Gazebo per visualizzare correttamente il TurtleBot.
+                            <br>
+                            <br>
+                            Un problema sistemistico importante invece è stato il dover rendere compatibile ROS Melodic con Python 3. Nel creare uno script che agisse come un server (che quindi rimanesse in ascolto di messaggi su una determinata porta) è stato necessario introdurre la libreria <span style="font-style: italic; font-weight: bold;">asyncio</span> che permettesse un'esecuzione asincrona e in loop dello script. Essa è solo compatibile con le release di Python > 3 cosa che andava a scontrarsi con i requisiti di ROS Melodic. Dopo svariati tentativi e ricerche online siamo riusciti a cambiare la release utilizzata da Melodic impostando quella definita da noi.
+                            <br>
+                            <br>
+                            Superati i problemi sistemistici iniziali ci siamo dedicati allo sviluppo della logica vera e propria, sia su frontend che su backend, oltre alla creazione di un mondo realistico tramite gli oggetti gratuiti disponibili dal database di Gazebo.
+                            <br>
+                            <br>
+                            <h4>Sviluppo della logica del robot</h3>
+                            Per costruire un robot che fosse utilizzabile da persone non esperte e da persone con disabilità è stato necessario focalizzarsi su movimenti semplici che fossero comprensibili da subito a tutti. Sono stati pertanto valutati movimenti lineari e rotazioni personalizzabili in base alla velocità lineare e ai gradi espressi dall'utente. Tuttavia considerando il target di riferimento si è ritenuto inopportuno complicare un applicativo destinato proprio a chi ne avrebbe fatto un utilizzo basilare, pertanto si è impostata una velocità lineare di default imponendo che ogni rotazione dettata vocalmente implicasse un angolo di 90 gradi.
+                            <br>
+                            Per far sì che il robot si muovesse in un ambiente reale è stato necessario considerare la presenza di ostacoli quali muri, tavoli ecc. per cui si è dovuto pensare a un sistema che gli permettesse di circolare senza problemi fermandosi qualora avesse incontrato un ostacolo e orientarsi in modo da avere via libera.
+                            <br>
+                            È stato quindi implementato un algoritmo di path recovery che consentisse di ricostruire le rotazioni effettuate in quella sequenza di comandi qualora si fosse presentato un ostacolo nei sensori frontali del robot, in modo da orientarsi verso la via di arrivo, sicuramente priva di ostacoli, come mostrato nel video sottostante
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/RoxhkiyvqlI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <br>
+                            <br>
+                            <h4>Sviluppo della logica di frontend</h4>
+                            L'applicazione web aveva come intento il mostrarsi semplice e minimale in modo che fossero subito chiari i comandi, il bottone per la dichiarazione dei comandi e il riquadro con il messaggio contente il risultato dell'operazione. La principale sfida è stata quella di trovare delle API, che consentissero di ascoltare i comandi dell'utente dal microfono e tradurli in testo. Fortunatamente le API native, funzionanti sui principali browser, ci hanno permesso di accedere con facilità a un oggetto di tipo SpeechRecognition, che consente di effettuare l'operazione desiderata sempre in locale, senza dover mandare audio a servizi esterni aprendo a una possibile falla di sicurezza e privacy. Fatto ciò è stato sufficiente implementare dei controlli che validassero i comandi dell'utente e sufficientemente aprire una connessione tramite websocket per l'invio di questi ultimi, attendendo poi la risposta del server
+                            <img src="VeP-progetto_files/frontend.PNG" height="500">
+                            <br>
+                            <br>
+                            <h4>Sviluppo del mondo personalizzato in Gazebo</h4>
+                            Per realizzare l'ambiente in cui far muovere il robot è stato utilizzato il building editor fornito dall'ambiente in modo da ottenere un mondo relativamente complesso che si avvicinasse il più possibile a qualcosa di reale.
+                            <br>
+                            Attraverso questo procedimento è stata realizzata una piantina dell'ambiente con rendering in tempo reale della struttura vuota. A questo punto uscendo dall'editor sfruttiamo gli oggetti messi a disposizione dalle API REST. Il principale problema è stato proprio riuscire a contattare il servizio corretto, in quanto l'indirizzo presente nella distribuzione punta a un'API obsoleta che sollevava errore nel momento in cui gli oggetti dovevano essere posizionati. Dopo numerose ricerche nei forum dedicati a ROS siamo riusciti a modificare l'indirizzo della API REST nel file di configurazione (config.yaml della cartella Ignition) aggiornandolo con quello corretto.
+                            <br>
+                            <img src="VeP-progetto_files/world.PNG" height="400">
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+				
+				<section class="about section">
+                    <div class="section-inner">
+                        <h2 class="heading"><a id="training"></a>Risultati</h2>
+                        <div class="content">
+                            							
+								
+							<h3>Risultati qualitativi</h3>
+                            <br>
+                            <br>
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/Jhtey9euS10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <br>
+                            <br>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/MBN2p4AVHeA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							
+							
+							
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </section><!--//section-->
+                
+            </div><!--//primary-->
+            
+			<div class="secondary col-md-4 col-sm-12 col-xs-12">
+                <aside class="info aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Autore/i</h2>
+                        <div class="content">
+                            <ul>
+                                <li>
+                                    <p>Andrea Giordano, 61195</p>
+                                </li>
+                                <li>
+                                    <p>Maria Grazia Raimondi, 61191</p>
+                                </li>
+                            </ul>
+                        </div><!--//content-->
+                    </div><!--//section-inner-->                 
+                </aside><!--//aside-->                        
+								
+                             
+                <aside class="blog aside section">
+                    <div class="section-inner">
+                        <h2 class="heading">Riferimenti</h2>
+						<div class="content">
+							
+							<div class="item">
+                                <a href="http://wiki.ros.org/Documentation">Documentazione ROS</a>                     
+                            </div>
+                            <div class="item">
+                                <a href="http://gazebosim.org/tutorials">Documentazione Gazebo</a>                     
+                            </div>
+                            <div class="item">
+                                <a href="https://websockets.readthedocs.io/en/stable/intro.html">Websockets Python</a>                     
+                            </div>
+                            <div class="item">
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition">SpeechRecognition Javascript</a>                     
+                            </div>
+							
+                        </div><!--//content-->
+                    </div><!--//section-inner-->
+                </aside><!--//section-->                            
+              
+            </div><!--//secondary-->    
+        </div><!--//row-->
+    </div><!--//masonry-->
+    
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="container text-center">
+                <small class="copyright">This template adapted from <a href="http://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a></small>
+        </div><!--//container-->
+    </footer><!--//footer-->
+ 
+ 
+
+ 
+
+</body></html>
