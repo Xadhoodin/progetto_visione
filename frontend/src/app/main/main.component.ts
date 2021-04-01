@@ -60,7 +60,7 @@ export class MainComponent implements OnInit {
       const commands: string[] = this.result.split(" ");
       commands.every(singleCommand => {
         const isCommandCorrect: boolean = singleCommand.toLowerCase() === 'avanti' || singleCommand.toLowerCase() === 'destra'
-          || singleCommand.toLowerCase() === 'sinistra'
+          || singleCommand.toLowerCase() === 'sinistra' || singleCommand.toLowerCase() === 'stop'
         if (!isCommandCorrect) {
           // console.log('Entro qui');
           this.commandsIncorrect = true;
